@@ -81,7 +81,7 @@ func Init() {
 }
 
 // NewProgramme creates a new Programme with the given parameters.
-func NewProgramme(channelID int, start, stop, title, desc, iconSrc string) Programme {
+func NewProgramme(channelID int, start, stop, title, desc, category, iconSrc string) Programme {
 	iconURL := fmt.Sprintf( "%s/jtvposter/%s",hostURL, iconSrc)
 	return Programme{
 		Channel: fmt.Sprint(channelID),
@@ -95,9 +95,11 @@ func NewProgramme(channelID int, start, stop, title, desc, iconSrc string) Progr
 			Value: desc,
 			Lang:  "en",
 		},
+		Category:    category,
 		Icon: Icon{
 			Src: iconURL,
 		},
+		
 	}
 }
 
@@ -150,7 +152,7 @@ func genXML() ([]byte, error) {
 				}
 				startTime := formatTime(time.Unix(start, 0))
 				endTime := formatTime(time.Unix(end, 0))
-				programmes = append(programmes, NewProgramme(channel.ID, startTime, endTime, programme.Title, programme.Description, programme.Poster))
+				programmes = append(programmes, NewProgramme(channel.ID, startTime, endTime, programme.Title, programme.Description,programme.ShowCategory, programme.Poster))
 			}
 		}
 		bar.Add(1)
