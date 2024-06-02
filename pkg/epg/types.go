@@ -43,7 +43,9 @@ type Programme struct {
 	Stop    string   `xml:"stop,attr"`    // Stop time of the programme
 	Title   Title    `xml:"title"`        // Title of the programme
 	Desc    Desc     `xml:"desc"`         // Description of the programme
+	Categoty string  `xml:"category"`     // Category of the programme
 	Icon    Icon     `xml:"icon"`         // Icon of the programme
+	
 }
 
 // EPG XML tag structure
