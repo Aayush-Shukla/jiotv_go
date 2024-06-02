@@ -82,7 +82,7 @@ func Init() {
 
 // NewProgramme creates a new Programme with the given parameters.
 func NewProgramme(channelID int, start, stop, title, desc, iconSrc string) Programme {
-	iconURL := fmt.Sprintf("/jtvposter/%s", iconSrc)
+	iconURL := fmt.Sprintf("http://raspberrypi:5002/jtvposter/%s", iconSrc)
 	return Programme{
 		Channel: fmt.Sprint(channelID),
 		Start:   start,
